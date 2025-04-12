@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hai Shofi</title>
+
+  <!-- Favicon dan Warna Tema -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #ffe6f0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff6ec4, #7873f5);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 24px;
+      animation: float 3s linear forwards;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Klik/Ketuk 10kali yaa 😂</button>
+
+  <script>
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", () => {
+      // Generate bunga dan love
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = Math.random() * window.innerWidth + "px";
+        particle.style.top = Math.random() * window.innerHeight + "px";
+        particle.innerText = Math.random() > 0.5 ? "❤️" : "🌹";
+        document.body.appendChild(particle);
+
+        // Hapus setelah animasi
+        setTimeout(() => {
+          particle.remove();
+        }, 3000);
+      }
+
+      // Redirect ke YouTube setelah 4 detik
+      setTimeout(() => {
+        window.location.href = "https://www.youtube.com/watch?v=qUl5fArIdXg"; // ganti dengan link lagu kamu
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
